@@ -1,39 +1,49 @@
+html {
+    height: 100%;
+}
+
 body {
     margin: 0;
+    height: 100%;
 }
 
-.content{
-    /* position: relative */
-}
-.header {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 800%;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
-}
-
-.wrapper {
+.content {
     display: flex;
-    align-items: stretch;
-} 
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    height: 100%;
+}
+
+body {
+    padding-left: 15vw;
+    transition: padding-left 0.3s;
+}
+body.sidebar-closed {
+    padding-left: 0;
+}
 
 button {
-    border: none; /* Remove borders */
-    color: black; /* White text */
-    padding: none; /* Some padding */
-    font-size: 50px; /* Set a font size */
-    cursor: pointer; /* Mouse pointer on hover */
+    border: none;
+    color: black;
+    background-color: white;
+    margin: 0.5em;
+    font-size: 50px;
+    cursor: pointer;
 }
 
 #sidebar {
     background-color: #FFF444;
-    min-width: 250px;
-    max-width: 250px;
-    min-height: 100vh;
+    width: 15vw;
+    position: absolute;
+    left: 0;
+    transition: left 0.3s;
+    top: 0;
+    height: 100%;
+}
+
+.sidebar-closed #sidebar {
+    left: -15vw;
 }
 
 #sidebar a {
@@ -41,8 +51,16 @@ button {
     text-decoration: inherit;
 }
 
-#sidebar.active {
-    margin-left: -250px;
+.topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.header {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 800%;
 }
 
 @media (max-width: 768px) {
