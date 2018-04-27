@@ -3,6 +3,7 @@ html {
 }
 
 body {
+    font-family: 'Montserrat', Helvetica;
     margin: 0;
     height: 100%;
 }
@@ -16,7 +17,7 @@ body {
 }
 
 body {
-    padding-left: 15vw;
+    padding-left: 20vw;
     transition: padding-left 0.3s;
 }
 body.sidebar-closed {
@@ -34,16 +35,24 @@ button {
 
 #sidebar {
     background-color: #FFF444;
-    width: 15vw;
+    width: 20vw;
     position: absolute;
     left: 0;
     transition: left 0.3s;
     top: 0;
     height: 100%;
+    padding: 3em;
+    box-sizing: border-box;
 }
 
 .sidebar-closed #sidebar {
-    left: -15vw;
+    left: -20vw;
+}
+
+#sidebar li {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 2em;
 }
 
 #sidebar a {
@@ -59,7 +68,6 @@ button {
 }
 
 .header {
-    font-family: 'Montserrat', sans-serif;
     font-size: 800%;
 }
 
