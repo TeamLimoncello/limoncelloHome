@@ -1,8 +1,18 @@
 #!/usr/bin/env ruby
 
 def sass_files(&block)
-  Dir.glob('style/*.{sass,scss}') do |source|
-    block[source, source.sub(/\.s[ac]ss$/, '.css')]
+  if ARGV.empty?
+    Dir.glob 'style/*.{sass,scss}' do |source|
+      block[source, source.sub(/\.s[ac]ss$/, '.css')]
+    end
+  else
+    Dir.glob ARGV do |source|
+      if source.match? /\.s[ac]ss$/
+        block[source, source.sub(/\.s[ac]ss$/, '.css')]
+      else
+        STDERR.puts "Not an SASS/SCSS file: #{source}"
+      end
+    end
   end
 end
 

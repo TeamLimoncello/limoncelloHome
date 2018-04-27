@@ -1,9 +1,40 @@
+$header-font: 'Montserrat', 'Gotham', Helvetica, sans-serif;
+$body-font: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+
+$sidebar-width: 320px;
+
+@mixin plain-link {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+@function rel-width($num, $sidebar) {
+    @if $sidebar {
+        @return calc(#{$num / 100} * (100vw - #{$sidebar-width}));
+    } @else {
+        @return calc(#{$num} * 1vw);
+    }
+}
+
+@mixin rel-width($property, $num) {
+    .sidebar-open & {
+        #{$property}: rel-width($num, true);
+    }
+    .sidebar-closed & {
+        #{$property}: rel-width($num, false);
+    }
+}
+
 html {
     height: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
 body {
-    font-family: 'Montserrat', Helvetica;
+    font-family: $header-font;
     margin: 0;
     height: 100%;
     display: flex;
@@ -23,8 +54,6 @@ body {
 }
 
 #sidebar {
-    $sidebar-width: 320px;
-
     background-color: #ff4;
     width: $sidebar-width;
     transition: left 0.3s;
@@ -32,6 +61,7 @@ body {
     padding: 3em;
     box-sizing: border-box;
     transition: margin-left 0.3s;
+    position: relative;
 
     .sidebar-closed & {
         margin-left: - $sidebar-width;
@@ -44,10 +74,16 @@ body {
     }
 
     a {
-        color: inherit;
-        text-decoration: inherit;
+        @include plain-link;
     }
 
+    footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: 1em;
+    }
 }
 
 .topbar {
@@ -80,7 +116,7 @@ body {
         right: 0;
         text-align: center;
         padding: 1em;
-        font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+        font-family: $body-font;
         color: #f66;
     }
 }
@@ -89,6 +125,39 @@ body {
     font-size: 6vw;
     text-align: center;
     font-weight: normal;
+}
+
+.gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .pair {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .person {
+        display: block;
+        margin: 0 2em;
+        @include plain-link;
+
+        max-width: 15vw;
+
+        img {
+            display: block;
+            width: 20em;
+            max-width: 100%;
+            border-radius: 50%;
+        }
+
+        h3 {
+            text-align: center;
+        }
+    }
 }
 
 // @media (max-width: 768px) {
