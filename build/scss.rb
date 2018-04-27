@@ -15,3 +15,5 @@ if processed.empty?
 else
   puts "Built CSS from #{processed.join ", "}"
 end
+
+File.rename 'style/.gitignore.deploy', 'style/.gitignore'
