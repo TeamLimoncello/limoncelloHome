@@ -1,0 +1,101 @@
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', Helvetica;
+    margin: 0;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+}
+
+.content {
+    position: relative;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.pages {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+#sidebar {
+    $sidebar-width: 320px;
+
+    background-color: #ff4;
+    width: $sidebar-width;
+    transition: left 0.3s;
+    height: 100%;
+    padding: 3em;
+    box-sizing: border-box;
+    transition: margin-left 0.3s;
+
+    .sidebar-closed & {
+        margin-left: - $sidebar-width;
+    }
+
+    li {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 2em;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: inherit;
+    }
+
+}
+
+.topbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+#sidebar-button {
+    border: none;
+    color: black;
+    background-color: transparent;
+    margin: 0.5em;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    height: 100%;
+
+    > footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        text-align: center;
+        padding: 1em;
+        font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+        color: #f66;
+    }
+}
+
+.header {
+    font-size: 6vw;
+    text-align: center;
+    font-weight: normal;
+}
+
+// @media (max-width: 768px) {
+//     #sidebar {
+//         margin-left: -250px;
+//     }
+//     #sidebar.active {
+//         margin-left: 0;
+//     }
+// }
