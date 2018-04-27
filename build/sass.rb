@@ -1,13 +1,18 @@
 #!/usr/bin/env ruby
 
+def sass_files(&block)
+  Dir.glob('style/*.{sass,scss}') do |source|
+    block[source, source.sub(/\.s[ac]ss$/, '.css')]
+  end
+end
+
 processed = []
 
-Dir.glob('style/*.scss') do |file|
-  output = file.sub(/scss$/, 'css')
-  result = system('scss', file, output)
+sass_files do |source, output|
+  result = system('sass', source, output)
   raise result unless $?.to_i == 0
   raise "When compiled the module should output some CSS" unless File.exists?(output)
-  processed << file
+  processed << source
 end
 
 if processed.empty?
