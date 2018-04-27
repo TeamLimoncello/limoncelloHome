@@ -2,7 +2,7 @@
 
 def sass_files(&block)
   Dir.glob('style/*.{sass,scss}') do |source|
-    block[source, source.sub(/\.s[ac]ss$/, 'css')]
+    block[source, source.sub(/\.s[ac]ss$/, '.css')]
   end
 end
 
