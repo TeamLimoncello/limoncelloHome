@@ -1,5 +1,5 @@
 script:
-- "build/scss.rb"
+- "build/deploy.rb"
 
 language: ruby
 before_install:
