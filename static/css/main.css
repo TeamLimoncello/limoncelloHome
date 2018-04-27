@@ -36,6 +36,11 @@ button {
     min-height: 100vh;
 }
 
+#sidebar a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
 #sidebar.active {
     margin-left: -250px;
 }
