@@ -6,28 +6,26 @@ body {
     font-family: 'Montserrat', Helvetica;
     margin: 0;
     height: 100%;
+    display: flex;
+    overflow: hidden;
 }
 
 .content {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
     position: relative;
     height: 100%;
+    flex-grow: 1;
 }
 
-body {
-    padding-left: 20vw;
-    transition: padding-left 0.3s;
-}
-body.sidebar-closed {
-    padding-left: 0;
+.pages {
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
-button {
+#sidebar-button {
     border: none;
     color: black;
-    background-color: white;
+    background-color: transparent;
     margin: 0.5em;
     font-size: 50px;
     cursor: pointer;
@@ -35,18 +33,16 @@ button {
 
 #sidebar {
     background-color: #FFF444;
-    width: 20vw;
-    position: absolute;
-    left: 0;
+    width: 320px;
     transition: left 0.3s;
-    top: 0;
     height: 100%;
     padding: 3em;
     box-sizing: border-box;
+    transition: margin-left 0.3s;
 }
 
 .sidebar-closed #sidebar {
-    left: -20vw;
+    margin-left: -320px;
 }
 
 #sidebar li {
@@ -67,8 +63,29 @@ button {
     right: 0;
 }
 
+.page {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    height: 100%;
+}
+
+.page > footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 1em;
+    font-family: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
+    color: #f66;
+}
+
 .header {
-    font-size: 800%;
+    font-size: 6vw;
+    text-align: center;
+    font-weight: normal;
 }
 
 @media (max-width: 768px) {

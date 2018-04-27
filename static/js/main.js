@@ -1,3 +1,3 @@
 loaded.then(() => {
-    $('#sidebarCollapse').click(() => $('body').toggleClass('sidebar-closed'));
+    $('#sidebar-button').click(() => $('body').toggleClass('sidebar-closed'));
 });
