@@ -1,8 +1,11 @@
 html {
   height: 100%; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal; }
+
 body {
-  font-family: 'Montserrat', Helvetica;
+  font-family: "Montserrat", "Gotham", Helvetica, sans-serif;
   margin: 0;
   height: 100%;
   display: flex;
@@ -25,7 +28,8 @@ body {
   height: 100%;
   padding: 3em;
   box-sizing: border-box;
-  transition: margin-left 0.3s; }
+  transition: margin-left 0.3s;
+  position: relative; }
   .sidebar-closed #sidebar {
     margin-left: -320px; }
   #sidebar li {
@@ -35,6 +39,12 @@ body {
   #sidebar a {
     color: inherit;
     text-decoration: inherit; }
+  #sidebar footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 1em; }
 
 .topbar {
   position: absolute;
@@ -70,5 +80,29 @@ body {
   font-size: 6vw;
   text-align: center;
   font-weight: normal; }
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap; }
+  .gallery .pair {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; }
+  .gallery .person {
+    display: block;
+    margin: 0 2em;
+    color: inherit;
+    text-decoration: inherit;
+    max-width: 15vw; }
+    .gallery .person img {
+      display: block;
+      width: 20em;
+      max-width: 100%;
+      border-radius: 50%; }
+    .gallery .person h3 {
+      text-align: center; }
 
 /*# sourceMappingURL=main.css.map */
