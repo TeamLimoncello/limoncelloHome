@@ -1,0 +1,14 @@
+script:
+- "build/scss.rb"
+
+language: ruby
+before_install:
+- gem install sass
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  keep-history: true
+  on:
+    branch: master
