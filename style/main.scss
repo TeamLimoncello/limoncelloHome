@@ -1,6 +1,13 @@
 $header-font: 'Montserrat', 'Gotham', Helvetica, sans-serif;
 $body-font: -apple-system, BlinkMacSystemFont, Helvetica, sans-serif;
 
+/* Colours */
+$lem-yel: #FFF444;
+$eng-green: #1A535C; 
+$med-turq: #4ECDC4;
+$mint-crm: #F7FFF7;
+$pastl-red: #FF6B6B;
+
 $sidebar-width: 320px;
 
 @mixin plain-link {
@@ -42,6 +49,7 @@ body {
 }
 
 .content {
+    background-color: $mint-crm;
     position: relative;
     height: 100%;
     flex-grow: 1;
