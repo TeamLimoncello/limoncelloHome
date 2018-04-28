@@ -13,7 +13,6 @@ body {
   overflow: hidden; }
 
 .content {
-  background-color: #F7FFF7;
   position: relative;
   height: 100%;
   flex-grow: 1; }
